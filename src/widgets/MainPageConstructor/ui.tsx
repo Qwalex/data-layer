@@ -434,6 +434,7 @@ export const MainPageConstructor: FC<TMainPageConstructor> = ({
               <Table.Column
                 title={title}
                 key={key}
+                //@ts-ignore
                 dataIndex={key}
                 render={(value, column) => (
                   <Cell
