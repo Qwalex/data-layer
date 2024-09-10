@@ -253,6 +253,7 @@ export const MainPageConstructor: FC<TMainPageConstructor> = ({
           return
         }
 
+        //@ts-ignore
         result.errors.push(parsedEventItem)
       })
     } catch (e) {
