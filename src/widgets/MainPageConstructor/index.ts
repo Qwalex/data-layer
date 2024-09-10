@@ -1,0 +1,1 @@
+export { MainPageConstructor } from './ui'
