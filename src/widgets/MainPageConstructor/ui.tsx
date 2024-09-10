@@ -199,6 +199,7 @@ const Cell = ({
 export const MainPageConstructor: FC<TMainPageConstructor> = ({
   dataLayers,
 }) => {
+  const [regex, setRegex] = useState('\\n\\b')
   const [compared, setCompared] = useState([])
   const [showOnly, setShowOnly] = useState<string>("");
   const [project, setProject] = useState<EProjects>();
@@ -338,7 +339,9 @@ export const MainPageConstructor: FC<TMainPageConstructor> = ({
   const clickHandler = () => {
     const textareaValue =
       textareaRef.current?.resizableTextArea?.textArea.value;
-    const [headValue, ...bodyValue] = textareaValue?.split(/\n\b/) || [];
+    const reg = new RegExp(regex)
+    console.log({reg})
+    const [headValue, ...bodyValue] = textareaValue?.split(reg) || [];
     const splitedHead = safeSplit(headValue).filter(Boolean)
 
     if (isStringArray(splitedHead)) {
@@ -370,6 +373,8 @@ export const MainPageConstructor: FC<TMainPageConstructor> = ({
         dataLayers={dataLayers}
         onSelectDataLayer={(data) => console.log(data)}
       />
+      <p>Регулярка</p>
+      <Input value={regex} onChange={({ currentTarget }) => setRegex(currentTarget.value)} />
       <p>Название проекта</p>
       <Input />
       <p>Ссылка на задачу</p>
