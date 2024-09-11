@@ -375,7 +375,7 @@ export const MainPageConstructor: FC<TMainPageConstructor> = ({
       />
       <p>Регулярка</p>
       <Input value={regex} onChange={({ currentTarget }) => setRegex(currentTarget.value)} />
-      <p>Название проекта</p>
+      <p>Название</p>
       <Input />
       <p>Ссылка на задачу</p>
       <Input />
